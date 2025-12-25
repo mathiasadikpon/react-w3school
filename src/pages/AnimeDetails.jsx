@@ -26,7 +26,7 @@ export default function AnimeDetails() {
         Anime not found
       </div>
     );
-
+  console.log(anime);
   return (
     <div
       style={{
