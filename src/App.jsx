@@ -1,13 +1,17 @@
-import { Suspense, lazy } from "react";
-import { animeResource } from "./api/animeResource";
-
-const AnimeList = lazy(() => import("./components/AnimeList"));
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <Suspense fallback={<h2>Loading anime...</h2>}>
-      <AnimeList resource={animeResource} />
-    </Suspense>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Future routes:
+          <Route path="/anime/:id" element={<AnimeDetails />} />
+        */}
+      </Routes>
+    </Router>
   );
 }
 
