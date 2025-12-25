@@ -8,10 +8,8 @@ export default function Home() {
 
   useEffect(() => {
     fetchTopAnime().then((data) => {
-      setTimeout(() => {
-        setAnime(data.slice(0, 16)); // Show top 6 anime on home page
-        setLoading(false);
-      }, 500);
+      setAnime(data.slice(0, 6)); // Show top 6 anime on home page
+      setLoading(false);
     });
   }, []);
 
