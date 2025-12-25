@@ -1,15 +1,11 @@
-import React from "react";
-import { Card, CardBody, CardTitle, CardImg } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const AnimeCard = ({ anime }) => (
-  <Card style={{ width: "18rem", margin: "1rem" }}>
-    <CardImg src={anime.images.jpg.image_url} alt={anime.title} />
-    <CardBody>
-      <CardTitle tag="h5">{anime.title}</CardTitle>
+export default function AnimeCard({ anime }) {
+  return (
+    <div className="anime-card">
+      <img src={anime.images.jpg.image_url} alt={anime.title} />
+      <h3>{anime.title}</h3>
       <Link to={`/anime/${anime.mal_id}`}>View Details</Link>
-    </CardBody>
-  </Card>
-);
-
-export default AnimeCard;
+    </div>
+  );
+}
