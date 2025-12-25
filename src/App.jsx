@@ -11,7 +11,13 @@ function App() {
   return (
     <>
       <Header />
-      <Suspense fallback={<div className="loading">Loading...</div>}>
+      <Suspense
+        fallback={
+          <div style={{ textAlign: "center", padding: "2rem" }}>
+            Loading page...
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/anime" element={<AnimeList />} />

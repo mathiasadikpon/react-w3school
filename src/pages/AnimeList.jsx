@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import AnimeCard from "../components/AnimeCard.jsx";
 import { fetchTopAnime } from "../services/animeApi.js";
+import AnimeCard from "../components/AnimeCard.jsx";
 
 export default function AnimeList() {
   const [anime, setAnime] = useState([]);
@@ -13,10 +13,23 @@ export default function AnimeList() {
     });
   }, []);
 
-  if (loading) return <div>Loading top anime...</div>;
+  if (loading)
+    return (
+      <div style={{ textAlign: "center", padding: "2rem" }}>
+        Loading top anime...
+      </div>
+    );
 
   return (
-    <div className="anime-list">
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "1rem",
+        padding: "1rem",
+      }}
+    >
       {anime.map((a) => (
         <AnimeCard key={a.mal_id} anime={a} />
       ))}
